@@ -1,28 +1,33 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+T# 创建项目
+$ rails new capstrano_demo -B -T
+# 创建 migrate 内容
+$ rails g scaffold post title content:text
 
-Things you may want to cover:
+# 添加 capistrano 相关 gem 到Gemfile
+gem 'capistrano'
+gem 'capistrano-rails'
+gem 'capistrano-rvm'
 
-* Ruby version
+$ bundle install
 
-* System dependencies
+# 初始化 cap 相关配置文件
+$ bundle exec cap install
+$ git remote add origin https://github.com/polarlights/capstrano_demo
+$ git push -u origin master
 
-* Configuration
+# 安装 git, rvm等
+$ sudo rvm requirements
+$ sudo apt-get install git ndoejs
 
-* Database creation
+# 创建用户和组
+sudo groupadd web
+sudo useradd -m -g web -G rvm web -s /bin/bash
 
-* Database initialization
+# 加 ssh-key 添加到远程机器
+$ vim ~/.ssh/authorized_keys
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+# 创建相关文件
+$ bundle exec cap production deploy:check
+# 复制相关文件到 server，比如 database.yml 等
