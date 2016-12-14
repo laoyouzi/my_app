@@ -1,4 +1,4 @@
-APP_PORT ||= ENV['APP_PORT'] || 3000
+APP_PORT ||= ENV['APP_PORT'] || 3001
 puts "app_port: #{APP_PORT}"
 APP_PATH = ENV['WORKING_DIRECTORY'] || File.expand_path('../..', __FILE__)
 puts "working_directory: #{APP_PATH}"
@@ -16,6 +16,9 @@ listen "/tmp/unicorn.my_app.sock"
 
 worker_processes WORKER_PROCESSES
 timeout 120
+
+stderr_path "#{APP_PATH}/log/unicorn.log"
+stdout_path "#{APP_PATH}/log/unicorn.log"
 
 if GC.respond_to?(:copy_on_write_friendly=)
   GC.copy_on_write_friendly = true
