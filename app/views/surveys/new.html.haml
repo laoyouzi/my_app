@@ -1,0 +1,22 @@
+.test
+  .test1
+    %h1 hello
+    %h1 hello
+    %h2 hello
+  .test2
+    =form_for @survey do |f|
+      = flash[:notice]
+      = render partial: 'sub_surveys' , locals: {f: f}
+
+:javascript
+  $(function(){
+    $('form').on('click', '.add_answer', function(event){
+       var id = $(this).data("id")
+       var fields = $(this).data("fields")
+       var time = new Date().getTime()
+       var regexp = new RegExp(id, 'g')
+       $(this).parent().before(fields.replace(regexp, time))
+       event.preventDefault()
+    })
+  })
+

@@ -1,0 +1,23 @@
+.test1
+  %h1 hello
+  %h1 hello
+  %h2 hello
+  .test2
+    %p
+      %strong Name:
+      = h @survey.name
+
+    %ol
+      - @survey.questions.each do |question|
+        %li
+          = h question.content
+          %ul
+            - for answer in question.answers
+              %li 
+                = h answer.content
+
+    %p
+      = link_to "Edit", edit_survey_path(@survey)
+      = link_to "Destroy", @survey, :confirm => 'Are you sure?', :method => :delete |
+      = link_to "View All", surveys_path
+

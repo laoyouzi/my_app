@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  
+  resources :surveys
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'

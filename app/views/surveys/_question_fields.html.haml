@@ -1,0 +1,12 @@
+.questions
+  %p{class: "panel"}
+    = f.label :content, "Question"
+    = f.text_area :content, :rows => 3
+    = f.check_box :_destroy
+    = f.label :_destroy, "remove question"
+
+  .answer
+    = f.fields_for :answers do |builder|
+      = render 'answer_fields', :f => builder
+    .add_link
+      = link_to_add_fields "+Add", f, "answers", class: "add_answer"

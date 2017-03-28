@@ -41,6 +41,7 @@ gem 'capistrano-rails'
 gem 'capistrano-rvm'
 gem 'capistrano-rbenv'
 
+gem 'haml'
 group :development, :test do
   # Call 'debugger' anywhere in the code to stop execution and get a debugger console
   gem 'sqlite3'
@@ -50,12 +51,14 @@ group :development, :test do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+  gem 'pry'
+  gem 'pry-byebug'
 end
 
 group :test do
-  gem 'minitest-reporters', '1.0.5'
-  gem 'mini_backtrace', '0.1.3'
-  gem 'guard-minitest', '2.3.1'
+ # gem 'minitest-reporters', '1.0.5'
+ # gem 'mini_backtrace', '0.1.3'
+ # gem 'guard-minitest', '2.3.1'
 end
 
 group :production do
