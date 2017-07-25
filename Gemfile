@@ -17,6 +17,11 @@ gem 'coffee-rails', '4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
+gem 'paper_trail'
+
+gem 'compass'
+gem 'compass-rails'
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails', '4.0.3'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
@@ -59,6 +64,27 @@ group :test do
  # gem 'minitest-reporters', '1.0.5'
  # gem 'mini_backtrace', '0.1.3'
  # gem 'guard-minitest', '2.3.1'
+  gem 'rspec-rails', '~> 3.5'
+
+  gem 'rspec-sidekiq', git: "https://github.com/philostler/rspec-sidekiq", branch: "develop"
+  gem 'webmock'
+  # Collection of testing matchers extracted from Shoulda
+  gem 'shoulda-matchers'
+  # Acceptance test framework for web applications
+  gem 'capybara'
+  # A PhantomJS driver for Capybara
+  gem 'poltergeist'
+  # Raises an error when you use a capybara finder and it times out.
+  gem 'capybara-slow_finder_errors'
+
+  # http://www.rubydoc.info/gems/factory_girl/file/GETTING_STARTED.md
+  gem "factory_girl_rails", "~> 4.0"
+  gem "database_cleaner"
+  gem 'simplecov', :require => false
+  gem 'rubocop', :require => false
+  gem 'rubycritic', :require => false
+  gem 'rails_best_practices', :require => false
+
 end
 
 group :production do
