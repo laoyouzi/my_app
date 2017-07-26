@@ -397,7 +397,7 @@ DEPENDENCIES
   haml
   jbuilder (= 2.2.3)
   jquery-rails (= 4.0.3)
-  mysql2 (~> 0.3.18)
+  mysql2
   paper_trail
   poltergeist
   pry
@@ -423,4 +423,4 @@ DEPENDENCIES
   webmock
 
 BUNDLED WITH
-   1.13.6
+   1.15.3
