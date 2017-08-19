@@ -47,6 +47,10 @@ gem 'capistrano-rails'
 gem 'capistrano-rvm'
 gem 'capistrano-rbenv'
 
+#Generates attr_accessors that transparently encrypt and decrypt attributes.
+gem 'attr_encrypted', "~>3.0.0"
+
+
 gem 'haml'
 group :development, :test do
   # Call 'debugger' anywhere in the code to stop execution and get a debugger console

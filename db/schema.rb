@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170330095541) do
+ActiveRecord::Schema.define(version: 20170819022737) do
 
   create_table "answers", force: :cascade do |t|
     t.integer  "question_id", limit: 4
@@ -37,12 +37,18 @@ ActiveRecord::Schema.define(version: 20170330095541) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "name",            limit: 255
-    t.string   "email",           limit: 255
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
-    t.string   "password_digest", limit: 255
-    t.string   "remember_digest", limit: 255
+    t.string   "name",                    limit: 255
+    t.string   "email",                   limit: 255
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.string   "password_digest",         limit: 255
+    t.string   "remember_digest",         limit: 255
+    t.string   "ssn_number",              limit: 255
+    t.string   "ssn_card",                limit: 255
+    t.string   "encrypted_ssn_number",    limit: 255
+    t.string   "encrypted_ssn_number_iv", limit: 255
+    t.string   "encrypted_ssn_card",      limit: 255
+    t.string   "encrypted_ssn_card_iv",   limit: 255
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

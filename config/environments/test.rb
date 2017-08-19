@@ -37,6 +37,8 @@ Rails.application.configure do
   # Print deprecation notices to the stderr.
   config.active_support.deprecation = :stderr
 
+  ENCRYPTED_KEY = ENV['encrypted_key'] || '12345678901234567890123456789000'
+
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 end

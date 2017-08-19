@@ -7,12 +7,17 @@ class User < ActiveRecord::Base
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
   has_secure_password
-  validates :password, presence: true, length: { minimum: 6 }
+  validates :password, presence: true, length: { minimum: 6, maxinum: 16}, allow_blank: true, on: :update
+
+  attr_encrypted :ssn_number, key: ::ENCRYPTED_KEY, attribute: 'encrypted_ssn_number'
+  attr_encrypted :ssn_card, key: ::ENCRYPTED_KEY 
+
   def User.digest(string)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
                                                   BCrypt::Engine.cost
     BCrypt::Password.create(string, cost: cost)
   end
+
   def User.new_token
     SecureRandom.urlsafe_base64
   end
