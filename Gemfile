@@ -50,6 +50,7 @@ gem 'capistrano-rbenv'
 #Generates attr_accessors that transparently encrypt and decrypt attributes.
 gem 'attr_encrypted', "~>3.0.0"
 
+gem 'sprockets', '3.6.3'
 
 gem 'haml'
 group :development, :test do
